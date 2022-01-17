@@ -13,4 +13,4 @@ chan0 = AnalogIn(mcp, MCP.P0)
 
 while(True):
     print(chan0.value)
-    time.sleep(.01)
+    time.sleep(.2)

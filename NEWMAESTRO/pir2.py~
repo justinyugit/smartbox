@@ -1,0 +1,10 @@
+import time
+import board
+import digitalio
+
+pir_sensor= digitalio.DigitalInOut(board.D5)
+pir_sensor.direction = digitalio.Direction.INPUT
+
+while True:
+    print(pir_sensor.value)
+    time.sleep(.5)

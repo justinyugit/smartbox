@@ -11,6 +11,9 @@ import digitalio
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 
+time.sleep(1)
+
+
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI = board.MOSI)
 cs = digitalio.DigitalInOut(board.D22)
 mcp = MCP.MCP3008(spi,cs)
@@ -77,7 +80,7 @@ p6 = multiprocessing.Process(target=getMAX, args=(mic, )).start()
 
 while True:
     time.sleep(0.01)
-    print(motion.value, temperature.value, gas.value, humidity.value, pressure.value,
+    print(int(time.time()*1000), motion.value, temperature.value, gas.value, humidity.value, pressure.value,
           MX.value, MY.value, MZ.value,
           AX.value, AY.value, AZ.value,
           R.value, G.value, B.value,
